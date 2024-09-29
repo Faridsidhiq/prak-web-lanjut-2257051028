@@ -25,7 +25,7 @@
             border: 2px solid #ff1744; /* Border merah */
         }
         .card img {
-            border-radius: 50%; 
+
             width: 120px;
             height: 120px;
             margin-bottom: 20px;
@@ -62,16 +62,7 @@
         <img src="https://i.pinimg.com/736x/09/7e/ef/097eefc0841bed88ddba155bad43d2e6.jpg" alt="Avatar"> <!-- Avatar Deadpool -->
         
         <div class="info">
-            <p class="label">Nama:</p>
-            <p class="value"><?= $nama ?></p> <!-- Nama yang diinput ditampilkan dengan rapi -->
-        </div>
-        <div class="info">
-            <p class="label">Kelas:</p>
-            <p class="value"><?= $kelas ?></p> <!-- Kelas yang diinput ditampilkan dengan rapi -->
-        </div>
-        <div class="info">
-            <p class="label">NPM:</p>
-            <p class="value"><?= $npm ?></p> <!-- NPM yang diinput ditampilkan dengan rapi -->
+
         </div>
     </div>
 
