@@ -63,15 +63,15 @@
         
         <div class="info">
             <p class="label">Nama:</p>
-            <p class="value">Farid Sidhiq S</p> <!-- Nama ditampilkan di sini -->
+            <p class="value"><?= $nama ?></p> <!-- Nama yang diinput ditampilkan dengan rapi -->
         </div>
         <div class="info">
             <p class="label">Kelas:</p>
-            <p class="value">B</p> <!-- Kelas ditampilkan di sini -->
+            <p class="value"><?= $kelas ?></p> <!-- Kelas yang diinput ditampilkan dengan rapi -->
         </div>
         <div class="info">
             <p class="label">NPM:</p>
-            <p class="value">2257051028</p> <!-- NPM ditampilkan di sini -->
+            <p class="value"><?= $npm ?></p> <!-- NPM yang diinput ditampilkan dengan rapi -->
         </div>
     </div>
 
