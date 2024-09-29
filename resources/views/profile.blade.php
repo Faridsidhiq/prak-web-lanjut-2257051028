@@ -25,7 +25,7 @@
             border: 2px solid #ff1744; /* Border merah */
         }
         .card img {
-            border-radius: 50%; /* Membuat gambar lingkaran */
+
             width: 120px;
             height: 120px;
             margin-bottom: 20px;
@@ -62,16 +62,7 @@
         <img src="https://i.pinimg.com/736x/09/7e/ef/097eefc0841bed88ddba155bad43d2e6.jpg" alt="Avatar"> <!-- Avatar Deadpool -->
         
         <div class="info">
-            <p class="label">Nama :</p>
-            <p class="value">Farid Sidhiq S</p> <!-- Nama ditampilkan di sini -->
-        </div>
-        <div class="info">
-            <p class="label">Kelas :</p>
-            <p class="value">B</p> <!-- Kelas ditampilkan di sini -->
-        </div>
-        <div class="info">
-            <p class="label">NPM :</p>
-            <p class="value">2257051028</p> <!-- NPM ditampilkan di sini -->
+
         </div>
     </div>
 
