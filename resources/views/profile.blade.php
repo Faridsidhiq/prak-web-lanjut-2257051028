@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prak2</title>
+    <title>Profile</title>
     <style>
         body {
             margin: 0;
@@ -25,11 +25,11 @@
             border: 2px solid #ff1744; /* Border merah */
         }
         .card img {
-
             width: 120px;
             height: 120px;
             margin-bottom: 20px;
             border: 4px solid #ff1744; /* Border merah untuk lingkaran */
+            border-radius: 50%; /* Membuat gambar lingkaran */
         }
         .info {
             display: flex;
@@ -48,11 +48,13 @@
         .label {
             color: #ff1744; /* Warna teks merah sesuai tema Deadpool */
             font-weight: bold;
-            flex: 1; /* Label menempati satu bagian */
+            text-align: left;
+            width: 80px; /* Lebar tetap untuk label agar sejajar */
         }
         .value {
-            flex: 2; /* Nilai menempati dua bagian */
+            flex: 1;
             text-align: left;
+            padding-left: 10px; /* Sedikit jarak antara label dan value */
         }
     </style>
 </head>
@@ -61,8 +63,19 @@
     <div class="card">
         <img src="https://i.pinimg.com/736x/09/7e/ef/097eefc0841bed88ddba155bad43d2e6.jpg" alt="Avatar"> <!-- Avatar Deadpool -->
         
-        <div class="info">
+        <h1>Profil User</h1>
 
+        <div class="info">
+            <p class="label">Nama :</p>
+            <p class="value">{{ $nama }}</p> <!-- Proper width for name field -->
+        </div>
+        <div class="info">
+            <p class="label">NPM    :</p>
+            <p class="value">{{ $npm }}</p> <!-- Proper width for NPM -->
+        </div>
+        <div class="info">
+            <p class="label">Kelas :</p>
+            <p class="value">{{ $nama_kelas ?? 'Kelas Tidak Ditemukan' }}</p> <!-- Proper width for class -->
         </div>
     </div>
 
