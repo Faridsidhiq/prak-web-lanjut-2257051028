@@ -25,7 +25,7 @@
             border: 2px solid #ff1744; /* Border merah */
         }
         .card img {
-            border-radius: 50%; /* Membuat gambar lingkaran */
+            border-radius: 50%; 
             width: 120px;
             height: 120px;
             margin-bottom: 20px;
