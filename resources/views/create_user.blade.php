@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prak 3</title>
+    <title>User Create</title>
     <style>
         body {
             margin: 0;
@@ -23,18 +23,19 @@
             width: 350px; /* Lebar form */
             border: 2px solid #ff1744; /* Border merah */
         }
-        table {
-            width: 100%; /* Lebar tabel 100% untuk form */
+        label {
+            color: #ff1744; /* Warna label sesuai tema Deadpool */
+            font-weight: bold;
+            display: block; /* Memastikan label berada di atas input */
+            margin-bottom: 5px; /* Jarak antara label dan input */
         }
-        td {
-            padding: 10px; /* Jarak antar elemen */
-        }
-        input[type="text"] {
-            width: calc(100% - 20px); /* Lebar input mengurangi padding */
+        input[type="text"], select {
+            width: calc(100% - 20px); /* Lebar input dan select mengurangi padding */
             padding: 10px; /* Jarak dalam input */
             border: 2px solid #ff1744; /* Border merah untuk input */
-            border-radius: 5px; /* Sudut melengkung pada input */
+            border-radius: 5px; /* Sudut melengkung pada input dan select */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Bayangan ringan */
+            margin-bottom: 15px; /* Jarak antara elemen input */
         }
         input[type="submit"] {
             background-color: #d50032; /* Warna latar belakang tombol lebih gelap */
@@ -44,33 +45,44 @@
             padding: 10px 15px; /* Jarak dalam tombol */
             cursor: pointer; /* Kursor menjadi pointer */
             font-size: 16px; /* Ukuran font tombol */
+            width: 100%; /* Lebar tombol 100% */
+            border: 2px solid #ff1744; /* Border merah untuk tombol */
         }
         input[type="submit"]:hover {
             background-color: #a2001d; /* Warna tombol saat hover lebih gelap */
+            border: 2px solid #ff6f40; /* Border tombol saat hover */
+        }
+        .text-danger {
+            color: red; /* Warna merah untuk pesan error */
+            font-size: 14px; /* Ukuran font untuk pesan error */
+            margin: 5px 0; /* Jarak antara pesan error dan elemen lainnya */
         }
     </style>
 </head>
 <body>
     <form action="{{ route('user.store') }}" method="POST">
         @csrf
-        <table>
-            <tr>
-                <td>Nama:</td>
-                <td><input type="text" name="nama"></td>
-            </tr>
-            <tr>
-                <td>NPM:</td>
-                <td><input type="text" name="npm"></td>
-            </tr>
-            <tr>
-                <td>Kelas:</td>
-                <td><input type="text" name="kelas"></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><input type="submit" value="Submit"></td>
-            </tr>
-        </table>
+        
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" name="nama">
+        @foreach($errors->get('nama') as $msg)
+            <p class="text-danger">{{ $msg }}</p>
+        @endforeach
+
+        <label for="npm">NPM:</label>
+        <input type="text" id="npm" name="npm">
+        @foreach($errors->get('npm') as $msg)
+            <p class="text-danger">{{ $msg }}</p>
+        @endforeach
+
+        <label for="kelas">Kelas :</label>
+        <select name="kelas_id" id="kelas_id">
+            @foreach ($kelas as $kelasItem)
+                <option value="{{ $kelasItem->id }}">{{ $kelasItem->nama_kelas }}</option>
+            @endforeach
+        </select>
+
+        <input type="submit" value="Submit">
     </form>
 </body>
 </html>
