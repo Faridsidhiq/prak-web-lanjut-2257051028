@@ -67,15 +67,15 @@
 
         <div class="info">
             <p class="label">Nama :</p>
-            <p class="value">{{ $nama }}</p> <!-- Proper width for name field -->
+            <p class="value">{{$user->nama }}</p> <!-- Proper width for name field -->
         </div>
         <div class="info">
             <p class="label">NPM    :</p>
-            <p class="value">{{ $npm }}</p> <!-- Proper width for NPM -->
+            <p class="value">{{ $user->npm }}</p> <!-- Proper width for NPM -->
         </div>
         <div class="info">
             <p class="label">Kelas :</p>
-            <p class="value">{{ $nama_kelas ?? 'Kelas Tidak Ditemukan' }}</p> <!-- Proper width for class -->
+            <p class="value">{{ $user->nama_kelas ?? 'Kelas Tidak Ditemukan' }}</p> <!-- Proper width for class -->
         </div>
     </div>
 
