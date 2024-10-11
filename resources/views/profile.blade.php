@@ -61,8 +61,7 @@
 <body>
 
     <div class="card">
-        <img src="https://i.pinimg.com/736x/09/7e/ef/097eefc0841bed88ddba155bad43d2e6.jpg" alt="Avatar"> <!-- Avatar Deadpool -->
-        
+    <img src="{{ asset('storage/uploads/' . $user->foto) }}" class="card-img-top" alt="">
         <h1>Profil User</h1>
 
         <div class="info">
@@ -75,7 +74,7 @@
         </div>
         <div class="info">
             <p class="label">Kelas :</p>
-            <p class="value">{{ $user->nama_kelas ?? 'Kelas Tidak Ditemukan' }}</p> <!-- Proper width for class -->
+            <p class="value">{{ $nama_kelas ?? 'Kelas tidak ditemukan' }}</p> <!-- Proper width for class -->
         </div>
     </div>
 
