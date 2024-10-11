@@ -33,17 +33,31 @@
 
     .table th, .table td {
         padding: 15px; /* Jarak dalam sel */
-        text-align: left; /* Rata kiri untuk teks */
         border-bottom: 1px solid #ff1744; /* Garis bawah sel */
+        vertical-align: middle; /* Vertikal rata tengah untuk isi sel */
     }
 
     .table th {
         background-color: #ff1744; /* Warna latar belakang header tabel */
         color: white; /* Warna teks header */
+        text-align: left;
+        
     }
 
     .table td {
         color: #333; /* Warna teks sel */
+    }
+
+    /* Menggeser Nama dan NPM ke kanan */
+    .table td:nth-child(2),
+    .table td:nth-child(3),
+    .table td:nth-child(5) {
+        padding-left: 20px; /* Geser kolom Nama, NPM, dan Aksi ke kanan */
+    }
+
+    /* Menggeser Kelas sedikit ke kiri */
+    .table td:nth-child(4) {
+        padding-right: 20px; /* Geser kolom Kelas ke kiri */
     }
 
     .table tr:hover {
@@ -65,12 +79,22 @@
         cursor: pointer; /* Mengubah kursor saat hover */
     }
 
+    .btn-warning, .btn-danger {
+        margin-right: 5px; /* Jarak antar tombol */
+    }
+
+    .table td .action-buttons {
+        display: flex;
+        justify-content: flex-start; /* Tombol rata kiri */
+        gap: 5px; /* Jarak antar tombol */
+    }
+
     /* Responsif */
     @media (max-width: 768px) {
         .container {
             padding: 15px; /* Mengurangi padding pada layar kecil */
         }
-        
+
         .table th, .table td {
             padding: 10px; /* Mengurangi padding pada sel */
         }
@@ -83,10 +107,9 @@
 
 <div class="container">
     <h2>Daftar Pengguna</h2>
+    <a href="{{ route('user.create') }}" class="btn btn-primary mb-3">Tambah Pengguna Baru</a>
+    
     <table class="table">
-    <a href="{{ route('user.create') }}" class="btn
-btn-primary mb-3">Tambah Pengguna Baru</a>
-
         <thead>
             <tr>
                 <th>ID</th>
@@ -103,8 +126,18 @@ btn-primary mb-3">Tambah Pengguna Baru</a>
                 <td>{{ $user->nama }}</td>
                 <td>{{ $user->npm }}</td>
                 <td>{{ $user->nama_kelas }}</td>
-                <td><a href="{{route('users.show',$user->id)}}"class ="btn btn-warning mb-3">Detail</a></td>
-                <td><button class="btn btn-primary">Aksi</button></td>
+                <td>
+                    <div class="action-buttons">
+                        <a href="{{ route('user.show', $user->id) }}" class="btn btn-warning btn-sm">View</a>
+                        <a href="{{ route('user.edit', $user['id']) }}" class="btn btn-warning btn-sm">Edit</a>
+                        <form action="{{ route('user.destroy', $user['id']) }}" method="POST" style="display:inline-block;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger btn-sm"
+                                onclick="return confirm('Apakah Anda yakin ingin menghapus user ini?')">Delete</button>
+                        </form>
+                    </div>
+                </td>
             </tr>
             @endforeach
         </tbody>
